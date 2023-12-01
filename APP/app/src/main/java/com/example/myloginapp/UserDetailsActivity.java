@@ -41,7 +41,7 @@ public class UserDetailsActivity extends AppCompatActivity {
         double height = Double.parseDouble(editTextHeight.getText().toString());
         double weight = Double.parseDouble(editTextWeight.getText().toString());
 
-        // Save to the database
+
         SQLiteDatabase db = dbHelper.getWritableDatabase();
         ContentValues values = new ContentValues();
         values.put(UserDetailsDatabaseHelper.COLUMN_NAME, name);
@@ -53,7 +53,6 @@ public class UserDetailsActivity extends AppCompatActivity {
 
         long newRowId = db.insert(UserDetailsDatabaseHelper.TABLE_NAME, null, values);
 
-        // Clear text boxes
         editTextName.setText("");
         editTextAge.setText("");
         editTextGender.setText("");

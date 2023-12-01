@@ -28,7 +28,6 @@ public class StepCounterActivity extends AppCompatActivity implements SensorEven
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_step_counter);
 
-        // Find the views by their IDs
         headingTextView = findViewById(R.id.headingTextView);
         stepCountTextView = findViewById(R.id.stepCountTextView);
         playPauseButton = findViewById(R.id.playPauseButton);
@@ -43,12 +42,9 @@ public class StepCounterActivity extends AppCompatActivity implements SensorEven
         if (sensorManager.getDefaultSensor(Sensor.TYPE_STEP_COUNTER) != null) {
             Sensor stepCounterSensor = sensorManager.getDefaultSensor(Sensor.TYPE_STEP_COUNTER);
             sensorManager.registerListener(this, stepCounterSensor, SensorManager.SENSOR_DELAY_NORMAL);
-        } else {
-            // Handle the case where the device doesn't have a step counter sensor
-            // You may want to use other methods for step counting in such cases
         }
 
-        // Set click listener for the play/pause button
+
         playPauseButton.setOnClickListener(v -> toggleTracking());
         finishWalkButton = findViewById(R.id.finishWalkButton);
         finishWalkButton.setOnClickListener(v -> finishWalk());
@@ -64,11 +60,9 @@ public class StepCounterActivity extends AppCompatActivity implements SensorEven
 
     @Override
     public void onAccuracyChanged(Sensor sensor, int accuracy) {
-        // Handle accuracy changes if needed
     }
 
     private void updateStepCount() {
-        // Set the text of the step count TextView with the current step count
         stepCountTextView.setText("Steps: " + stepCount);
     }
 
@@ -84,7 +78,6 @@ public class StepCounterActivity extends AppCompatActivity implements SensorEven
     @Override
     protected void onResume() {
         super.onResume();
-        // Re-register the sensor listener when the activity is resumed
         if (sensorManager != null) {
             Sensor stepCounterSensor = sensorManager.getDefaultSensor(Sensor.TYPE_STEP_COUNTER);
             sensorManager.registerListener(this, stepCounterSensor, SensorManager.SENSOR_DELAY_NORMAL);
@@ -94,36 +87,24 @@ public class StepCounterActivity extends AppCompatActivity implements SensorEven
     @Override
     protected void onPause() {
         super.onPause();
-        // Unregister the sensor listener when the activity is paused to save resources
         if (sensorManager != null) {
             sensorManager.unregisterListener(this);
         }
     }
 
     private void finishWalk() {
-        // Assuming dbHelper3 is an instance of DatabaseHelper3
         StepCounterDatabaseHelper dbHelper3 = new StepCounterDatabaseHelper(this);
-
-        // Upload step count to the database
         uploadStepCount(dbHelper3, stepCount);
-
-        // Reset step count to 0
         stepCount = 0;
         updateStepCount();
-
-        // Show toast indicating success
         Toast.makeText(this, "Step count uploaded successfully", Toast.LENGTH_SHORT).show();
-
-        // Return to the redirect page
         finish();
     }
 
     private void uploadStepCount(StepCounterDatabaseHelper dbHelper3, int stepCount) {
-        // Assuming "steps" is the table name and "step_count" is the column name in the database
+
         ContentValues values = new ContentValues();
         values.put("step_count", stepCount);
-
-        // Insert the step count into the database
         dbHelper3.getWritableDatabase().insert("steps", null, values);
     }
 }

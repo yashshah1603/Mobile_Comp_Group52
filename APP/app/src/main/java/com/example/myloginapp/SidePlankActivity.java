@@ -9,7 +9,7 @@ import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 
 public class SidePlankActivity extends AppCompatActivity {
-
+    private boolean isMarkedAsDone = false;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -17,7 +17,8 @@ public class SidePlankActivity extends AppCompatActivity {
         String sidePlankBenefits = getString(R.string.side_plank);
         String sidePlankDuration = getString(R.string.side_plank_duration);
         String sidePlankCaloriesBurned = getString(R.string.side_plank_calories_burned);
-
+        Button markAsDoneButton = findViewById(R.id.markAsDoneButton);
+        markAsDoneButton.setOnClickListener(v -> markActivityAsDone());
         TextView benefitsTextView = findViewById(R.id.sidePlankBenefitsTextView);
         TextView durationTextView = findViewById(R.id.sidePlankDurationTextView);
         TextView caloriesTextView = findViewById(R.id.sidePlankCaloriesTextView);
@@ -32,5 +33,12 @@ public class SidePlankActivity extends AppCompatActivity {
             Intent intent = new Intent(SidePlankActivity.this, ExerciseActivity.class);
             startActivity(intent);
         });
+    }
+    private void markActivityAsDone() {
+        isMarkedAsDone = true;
+    }
+
+    public boolean isMarkedAsDone() {
+        return isMarkedAsDone;
     }
 }

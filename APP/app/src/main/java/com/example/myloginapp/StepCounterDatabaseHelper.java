@@ -13,7 +13,7 @@ public class StepCounterDatabaseHelper extends SQLiteOpenHelper {
     public static final String COLUMN_ID = "_id";
     public static final String COLUMN_STEP_COUNT = "step_count";
 
-    // Database creation SQL statement
+
     private static final String DATABASE_CREATE = "create table "
             + TABLE_STEPS + "(" + COLUMN_ID
             + " integer primary key autoincrement, " + COLUMN_STEP_COUNT
@@ -30,6 +30,6 @@ public class StepCounterDatabaseHelper extends SQLiteOpenHelper {
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-        // Add any upgrade logic here
+
     }
 }
