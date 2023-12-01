@@ -3,7 +3,7 @@ This repostiory contains files for Health Guard. This is group52's contribution 
 Here is a template for a README file for a Google Colab project:
 
 ---
-##Project 4 Yash Shah
+# Project 4 Yash Shah
 
 ## Introduction
 This repository contains a Google Colab notebook designed for Project4 CSE535 Garmin Wearable device Integration for Health Guard. Google Colab provides a free cloud service based on Jupyter Notebooks that supports free GPU and easy sharing.
