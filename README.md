@@ -40,5 +40,5 @@ Contributions to this notebook are will be made during Project 5. In project 5 G
 
 ## Contact
 - Your Name: [Your Email](mailto:yshah35@asu.edu)
-- Project Link: [https://github.com/yourusername/your-repo-name](https://github.com/yourusername/your-repo-name)
+- Project Link: [https://github.com/yourusername/your-repo-name](https://github.com/yashshah1603/Mobile_Comp_Group52.git)https://github.com/yashshah1603/Mobile_Comp_Group52.git)
 
