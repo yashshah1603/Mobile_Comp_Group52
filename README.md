@@ -7,6 +7,8 @@ Here is a template for a README file for a Google Colab project:
 
 ## Introduction
 This repository contains a Google Colab notebook designed for Project4 CSE535 Garmin Wearable device Integration for Health Guard. Google Colab provides a free cloud service based on Jupyter Notebooks that supports free GPU and easy sharing.
+## Google colab 
+https://colab.research.google.com/drive/19GRDowZ6QcIv_WOoO-vF7EApLqG9SuXx?usp=sharing
 
 ## Features
 - Jupyter Notebook environment with free GPU.
