@@ -39,5 +39,5 @@ The notebook is divided into sections, each handling a specific part of the data
 Contributions to this notebook are will be made during Project 5. In project 5 Group members will open an issue or submit a pull request for any enhancements.
 
 ## Contact
-- Your Name: [Your Email](mailto:yshah35@asu.edu)
+- Your Name: [yshah35@asu.edu](mailto:yshah35@asu.edu)
 
