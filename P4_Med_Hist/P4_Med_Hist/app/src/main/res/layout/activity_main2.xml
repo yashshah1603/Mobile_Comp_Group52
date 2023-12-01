@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#2D2F31"
+    tools:layout_editor_absoluteX="164dp"
+    tools:layout_editor_absoluteY="-17dp">
+
+    <Button
+        android:id="@+id/save"
+        android:layout_width="139dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="30dp"
+        android:backgroundTint="#FFC107"
+        android:text="Save"
+        android:textColor="#9C27B0"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toTopOf="@+id/textView"
+        app:layout_constraintEnd_toEndOf="@+id/arthritis"
+        app:layout_constraintStart_toStartOf="@+id/arthritis"
+        app:layout_constraintTop_toBottomOf="@+id/herpes" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="356dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginBottom="70dp"
+        android:text="Medical History"
+        android:textAlignment="center"
+        android:textColor="#FFEB3B"
+        android:textSize="60sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/save" />
+
+    <CheckBox
+        android:id="@+id/arthritis"
+        android:layout_width="321dp"
+        android:layout_height="54dp"
+        android:layout_marginStart="23dp"
+        android:layout_marginTop="16dp"
+        android:buttonTint="#FFEB3B"
+        android:text="Arthritis"
+        android:textAlignment="inherit"
+        android:textColor="#FFFFFF"
+        android:textSize="24sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <CheckBox
+        android:id="@+id/bp"
+        android:layout_width="382dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginBottom="18dp"
+        android:buttonTint="#FFEB3B"
+        android:text="High Blood Pressure"
+        android:textAlignment="inherit"
+        android:textColor="#FFFFFF"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toTopOf="@+id/herpes"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/hormone" />
+
+    <CheckBox
+        android:id="@+id/herpes"
+        android:layout_width="344dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginBottom="22dp"
+        android:buttonTint="#FFEB3B"
+        android:text="Herpes"
+        android:textAlignment="inherit"
+        android:textColor="#FFFFFF"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toTopOf="@+id/save"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/bp" />
+
+    <CheckBox
+        android:id="@+id/hiv"
+        android:layout_width="374dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="103dp"
+        android:layout_marginBottom="30dp"
+        android:buttonTint="#FFEB3B"
+        android:text="HIV"
+        android:textAlignment="inherit"
+        android:textColor="#FFFFFF"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toTopOf="@+id/thyroid"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.432"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <CheckBox
+        android:id="@+id/thyroid"
+        android:layout_width="369dp"
+        android:layout_height="0dp"
+        android:layout_marginEnd="24dp"
+        android:layout_marginBottom="32dp"
+        android:buttonTint="#FFEB3B"
+        android:text="Thyroid Imbalance"
+        android:textAlignment="inherit"
+        android:textColor="#FFFFFF"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toTopOf="@+id/hormone"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/hiv" />
+
+    <CheckBox
+        android:id="@+id/hormone"
+        android:layout_width="366dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="28dp"
+        android:buttonTint="#FFEB3B"
+        android:text="Hormone Imbalance"
+        android:textAlignment="inherit"
+        android:textColor="#FFFFFF"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toTopOf="@+id/bp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.488"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/thyroid" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
