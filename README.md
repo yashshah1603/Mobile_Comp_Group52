@@ -16,10 +16,9 @@ This repository contains a Google Colab notebook designed for Project4 CSE535 Ga
 ## Getting Started
 To use this notebook:
 1. Open the notebook in Google Colab.
-2. For dependency files refer to python-garminconnect-master folder
-3. Connect to a runtime (choose between GPU and CPU).
-4. Run the cells sequentially to connect to server and call health data retrieval function as needed.
-5. For Android App install Android Studio and unzip the p4_record_emergency_contacts.zip folder and open to take a look at the code in android studio IDE.
+2. Connect to a runtime (choose between GPU and CPU).
+3. Run the cells sequentially to connect to server and call health data retrieval function as needed.
+4. For Android App install Android Studio and unzip the p4_record_emergency_contacts.zip folder and open to take a look at the code in android studio IDE.
 
 
 ## Requirements
