@@ -31,7 +31,6 @@ public class ExerciseDatabaseHelper extends SQLiteOpenHelper {
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-        // Handle upgrades if needed
     }
 }
 

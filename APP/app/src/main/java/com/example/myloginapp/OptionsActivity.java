@@ -32,7 +32,7 @@ public class OptionsActivity extends AppCompatActivity {
     private void redirectToMainActivity() {
         Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
-        finish();  // Finish the current activity to remove it from the back stack
+        finish();
     }
 }
 
