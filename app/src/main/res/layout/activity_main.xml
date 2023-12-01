@@ -1,0 +1,394 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#000000"
+    tools:context=".MainActivity">
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/bottom_guideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.91" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/left_guide"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.05" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/right_guide"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.95" />
+
+
+    <ImageView
+        android:id="@+id/ic_notification"
+        android:layout_width="36dp"
+        android:layout_height="36dp"
+        android:layout_marginTop="10dp"
+        android:scaleType="fitXY"
+        android:src="@drawable/ic_notification"
+        app:layout_constraintStart_toStartOf="@id/left_guide"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_chainStyle="spread" />
+
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/ic_profile"
+        android:layout_width="36dp"
+        android:layout_height="36dp"
+        android:layout_marginTop="10dp"
+        android:src="@drawable/ic_person"
+        app:civ_border_color="@color/gray"
+        app:civ_border_width="2dp"
+        app:layout_constraintEnd_toStartOf="@id/ic_watch"
+        app:layout_constraintStart_toEndOf="@id/ic_notification"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/ic_watch"
+        android:layout_width="36dp"
+        android:layout_height="36dp"
+        android:layout_marginTop="10dp"
+        android:src="@drawable/ic_watch"
+        app:civ_border_color="@color/gray"
+        app:civ_border_width="2dp"
+        app:layout_constraintEnd_toStartOf="@id/ic_refresh"
+        app:layout_constraintStart_toEndOf="@id/ic_profile"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/ic_refresh"
+        android:layout_width="36dp"
+        android:layout_height="36dp"
+        android:layout_marginTop="10dp"
+        android:scaleType="fitXY"
+        android:src="@drawable/ic_refresh"
+        app:layout_constraintEnd_toStartOf="@id/right_guide"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <View
+        android:id="@+id/blue_separator"
+        android:layout_width="0dp"
+        android:layout_height="1sp"
+        android:layout_marginTop="10dp"
+        android:background="@color/blue"
+        app:layout_constraintEnd_toEndOf="@id/right_guide"
+        app:layout_constraintStart_toStartOf="@id/left_guide"
+        app:layout_constraintTop_toBottomOf="@id/ic_notification" />
+
+
+    <ScrollView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:fillViewport="true"
+        app:layout_constraintBottom_toTopOf="@id/bottom_guideline"
+        app:layout_constraintEnd_toEndOf="@id/right_guide"
+        app:layout_constraintStart_toStartOf="@id/left_guide"
+        app:layout_constraintTop_toBottomOf="@id/blue_separator">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/layout_content"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/content_background"
+            android:paddingTop="15dp"
+            android:paddingBottom="10dp">
+
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/inner_left_guide"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_percent="0.05" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/inner_right_guide"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_percent="0.95" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/layout_heart"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/curved_bg"
+                app:layout_constraintEnd_toEndOf="@id/inner_right_guide"
+                app:layout_constraintStart_toStartOf="@id/inner_left_guide"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <ImageView
+                    android:id="@+id/ic_heart"
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="10dp"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/ic_heart"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/tv_heart"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="2dp"
+                    android:text="Heart Rate"
+                    android:textColor="#F5F5F5"
+                    android:textSize="16sp"
+                    app:layout_constraintStart_toEndOf="@id/ic_heart"
+                    app:layout_constraintTop_toTopOf="@id/ic_heart" />
+
+
+                <ImageView
+                    android:id="@+id/ic_graph"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginEnd="10dp"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/ic_graph"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/layout_body_battery"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/curved_bg"
+                app:layout_constraintEnd_toEndOf="@id/inner_right_guide"
+                app:layout_constraintStart_toStartOf="@id/inner_left_guide"
+                app:layout_constraintTop_toBottomOf="@id/layout_heart">
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/layout_stress"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/curved_bg"
+                app:layout_constraintEnd_toEndOf="@id/inner_right_guide"
+                app:layout_constraintStart_toStartOf="@id/inner_left_guide"
+                app:layout_constraintTop_toBottomOf="@id/layout_body_battery">
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/layout_steps"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/curved_bg"
+                app:layout_constraintEnd_toEndOf="@id/inner_right_guide"
+                app:layout_constraintStart_toStartOf="@id/inner_left_guide"
+                app:layout_constraintTop_toBottomOf="@id/layout_stress">
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/layout_respiration"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/curved_bg"
+                app:layout_constraintEnd_toEndOf="@id/inner_right_guide"
+                app:layout_constraintStart_toStartOf="@id/inner_left_guide"
+                app:layout_constraintTop_toBottomOf="@id/layout_steps">
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/layout_add_item"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/curved_bg"
+                app:layout_constraintEnd_toEndOf="@id/inner_right_guide"
+                app:layout_constraintStart_toStartOf="@id/inner_left_guide"
+                app:layout_constraintTop_toBottomOf="@id/layout_respiration">
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/layout_yesterday"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/curved_bg"
+                app:layout_constraintEnd_toEndOf="@id/inner_right_guide"
+                app:layout_constraintStart_toStartOf="@id/inner_left_guide"
+                app:layout_constraintTop_toBottomOf="@id/layout_add_item">
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    </ScrollView>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/layout_bottom_nav"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/bottom_guideline">
+
+        <TextView
+            android:id="@+id/tv_my_day"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="1dp"
+            android:layout_marginBottom="2dp"
+            android:text="My Day"
+            android:textColor="#55A8Fd"
+            android:textSize="18sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/tv_challenges"
+            app:layout_constraintHorizontal_chainStyle="spread"
+            app:layout_constraintStart_toStartOf="parent" />
+
+
+        <ImageView
+            android:id="@+id/img_my_day"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:scaleType="fitXY"
+            android:src="@drawable/ic_my_day"
+            app:layout_constraintBottom_toTopOf="@id/tv_my_day"
+            app:layout_constraintEnd_toEndOf="@id/tv_my_day"
+            app:layout_constraintStart_toStartOf="@id/tv_my_day"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+        <TextView
+            android:id="@+id/tv_challenges"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="2dp"
+            android:text="Challenges"
+            android:textColor="@color/gray"
+            android:textSize="18sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/tv_calendar"
+            app:layout_constraintStart_toEndOf="@id/tv_my_day" />
+
+
+        <ImageView
+            android:id="@+id/img_challenges"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:padding="2dp"
+            android:scaleType="fitXY"
+            android:src="@drawable/ic_challenge"
+            app:layout_constraintBottom_toTopOf="@id/tv_challenges"
+            app:layout_constraintEnd_toEndOf="@id/tv_challenges"
+            app:layout_constraintStart_toStartOf="@id/tv_challenges"
+            app:layout_constraintTop_toTopOf="parent"
+            app:tint="@color/gray" />
+
+        <TextView
+            android:id="@+id/tv_calendar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="2dp"
+            android:text="Calendar"
+            android:textColor="@color/gray"
+            android:textSize="18sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/tv_news_feed"
+            app:layout_constraintStart_toEndOf="@id/tv_challenges" />
+
+
+        <ImageView
+            android:id="@+id/img_calendar"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:padding="1dp"
+            android:scaleType="fitXY"
+            android:src="@drawable/ic_calendar"
+            app:layout_constraintBottom_toTopOf="@id/tv_calendar"
+            app:layout_constraintEnd_toEndOf="@id/tv_calendar"
+            app:layout_constraintStart_toStartOf="@id/tv_calendar"
+            app:layout_constraintTop_toTopOf="parent"
+            app:tint="@color/gray" />
+
+        <TextView
+            android:id="@+id/tv_news_feed"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="2dp"
+            android:text="News Feed"
+            android:textColor="@color/gray"
+            android:textSize="18sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/tv_more"
+            app:layout_constraintStart_toEndOf="@id/tv_calendar" />
+
+
+        <ImageView
+            android:id="@+id/img_news_feed"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:scaleType="fitXY"
+            android:src="@drawable/ic_news_feed"
+            app:layout_constraintBottom_toTopOf="@id/tv_news_feed"
+            app:layout_constraintEnd_toEndOf="@id/tv_news_feed"
+            app:layout_constraintStart_toStartOf="@id/tv_news_feed"
+            app:layout_constraintTop_toTopOf="parent"
+            app:tint="@color/gray" />
+
+        <TextView
+            android:id="@+id/tv_more"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="1dp"
+            android:layout_marginBottom="2dp"
+            android:text="More"
+            android:textColor="@color/gray"
+            android:textSize="18sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/tv_news_feed" />
+
+
+        <ImageView
+            android:id="@+id/img_more"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:scaleType="fitXY"
+            android:src="@drawable/ic_more"
+            app:layout_constraintBottom_toTopOf="@id/tv_more"
+            app:layout_constraintEnd_toEndOf="@id/tv_more"
+            app:layout_constraintStart_toStartOf="@id/tv_more"
+            app:layout_constraintTop_toTopOf="parent"
+            app:tint="@color/gray" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
