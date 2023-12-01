@@ -11,7 +11,7 @@ To add a new profile and save to the DB.
 Track the steps taken by the person and save it to the DB
 Add water consumption and workout details.
 The Exercise Activity page has 5 workout buttons and selecting each button will give benefits recommended duration and amount of calories burnt. For now the recommended duration value is hardcoded but it will dynamically change based on the fuzzy logic and ML prediction algorithm.
-If the heart rate reading is more than 150 we prompt an alert to the user asking if the user is ok? If No is selected then we contacted the emergency services for help. If YES is selected we ignore it.
+If the heart rate reading is more than 150 we prompt an alert to the user asking if he’s ok? If No is selected then we contacted the emergency services for help. If YES is selected we ignore it.
 
 
 Overview of My project:
@@ -20,4 +20,11 @@ The main purpose of this project is to ensure that lifestyle suggestions, emerge
 We’re supporting this feature in 2 ways:
 If a user has a smartwatch, we get health data from the watch and process it. 
 Based on the user characteristics(age,weight,height) we recommend dietary and workout plans.	
-If the user doesn’t have a smartwatch we provide an app for the user. Where the user can measure heart rate, respiratory rate, record water consumption, record steps and workout.
+If the user doesn’t have a smartwatch we provide an app for the user. Where the user can measure heart rate, respiratory rate, record water consumption, record steps and workout.	
+
+Note: 
+Front end Design will be done by other team member, so no styling, structure, organization is added to the code.(Neil)
+For testing the  alert in case of high heart rate and respiratory code in the emulator I re-used the logic used in project 1.
+Integration of watch logic will be done other teammate(Yash)
+Integration of dietary recommendation using fuzzy logic and heart attack prediction will be other team mates(Yash and Vishal)
+Integration of calling emergency service based on the country they are in will by other teammate(Aastha).
