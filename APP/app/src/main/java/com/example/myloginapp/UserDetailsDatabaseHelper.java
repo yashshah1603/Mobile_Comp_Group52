@@ -15,6 +15,7 @@ public class UserDetailsDatabaseHelper extends SQLiteOpenHelper {
     public static final String COLUMN_MOBILE = "mobile";
     public static final String COLUMN_HEIGHT = "height";
     public static final String COLUMN_WEIGHT = "weight";
+    public static final String COLUMN_VEGETARIAN = "vegetarian";
 
     private static final int DATABASE_VERSION = 1;
 
@@ -31,7 +32,8 @@ public class UserDetailsDatabaseHelper extends SQLiteOpenHelper {
                 COLUMN_GENDER + " TEXT, " +
                 COLUMN_MOBILE + " TEXT, " +
                 COLUMN_HEIGHT + " REAL, " +
-                COLUMN_WEIGHT + " REAL)";
+                COLUMN_WEIGHT + " REAL"   +
+                COLUMN_VEGETARIAN + "TEXT)";
         db.execSQL(createTableQuery);
     }
 

@@ -1,8 +1,11 @@
 package com.example.myloginapp;
+
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class RedirectPage extends AppCompatActivity {
 
@@ -20,7 +23,16 @@ public class RedirectPage extends AppCompatActivity {
         buttonAddProfile.setOnClickListener(view -> navigateToAddProfile());
         buttonTrackSteps.setOnClickListener(view -> navigateToStepCounter());
         buttonExercise.setOnClickListener(view -> navigateToExercise());
+        BottomNavigationView bottomNavigationView = findViewById(R.id.bottomNavigation1);
+        bottomNavigationView.setOnNavigationItemSelectedListener(item -> {
+            if (item.getItemId() == R.id.action_sos) {
+                openEmergencyPage();
+                return true;
+            }
+            return false;
+        });
     }
+
 
     private void navigateToMeasureRate() {
         Intent intent = new Intent(this, MeasureHeartAndRespRateActivity.class);
@@ -41,4 +53,10 @@ public class RedirectPage extends AppCompatActivity {
         Intent intent = new Intent(this, ExerciseActivity.class);
         startActivity(intent);
     }
+
+    private void openEmergencyPage() {
+        Intent intent = new Intent(this, EmergencyPageActivity.class);
+        startActivity(intent);
+    }
+
 }

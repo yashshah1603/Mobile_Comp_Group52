@@ -61,6 +61,15 @@
         <activity
             android:name=".LungesActivity"
             android:exported="true" />
+        <activity
+            android:name=".SymptomDetailsActivity"
+            android:exported="true" />
+        <activity
+            android:name=".EmergencyPageActivity"
+            android:exported="true" />
+        <activity
+            android:name=".BaseActivity"
+            android:exported="true" />
     </application>
 
 </manifest>

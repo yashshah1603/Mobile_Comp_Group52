@@ -8,7 +8,6 @@ import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 
 public class AbsCrunchesActivity extends AppCompatActivity {
-    private boolean isMarkedAsDone = false;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -35,10 +34,11 @@ public class AbsCrunchesActivity extends AppCompatActivity {
     }
 
     private void markActivityAsDone() {
-        isMarkedAsDone = true;// Add any other actions you want to perform when the activity is marked as done
-    }
-
-    public boolean isMarkedAsDone() {
-        return isMarkedAsDone;
+        Intent resultIntent = new Intent();
+        resultIntent.putExtra("markAsDone", true);
+        resultIntent.putExtra("duration", 20); // Replace with the actual duration
+        resultIntent.putExtra("caloriesBurned", 70); // Replace with the actual calories burned
+        setResult(RESULT_OK, resultIntent);
+        finish();
     }
 }

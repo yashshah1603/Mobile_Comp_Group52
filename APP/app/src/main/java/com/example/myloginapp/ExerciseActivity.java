@@ -13,6 +13,8 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.android.material.bottomnavigation.BottomNavigationView;
+
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
@@ -27,6 +29,10 @@ public class ExerciseActivity extends AppCompatActivity {
     private int totalWaterConsumedToday = 0;
     private static final String PREF_NAME = "WaterConsumptionPrefs";
     private static final String KEY_CONSUMED_AMOUNT_TODAY = "consumedAmountToday";
+
+    private int totalMinutes = 0;
+
+    private int totalCalories = 0;
 
 
     @Override
@@ -44,15 +50,20 @@ public class ExerciseActivity extends AppCompatActivity {
         Button highSteppingButton = findViewById(R.id.highSteppingButton);
         Button absCrunchesButton = findViewById(R.id.absCrunchesButton);
         Button pushupsButton = findViewById(R.id.pushupsButton);
-        sidePlankButton.setOnClickListener(v -> startActivity(new Intent(ExerciseActivity.this, SidePlankActivity.class)));
+        sidePlankButton.setOnClickListener(v -> startActivityForResult(new Intent(ExerciseActivity.this, SidePlankActivity.class), 1));
+        lungesButton.setOnClickListener(v -> startActivityForResult(new Intent(ExerciseActivity.this, LungesActivity.class), 2));
+        highSteppingButton.setOnClickListener(v -> startActivityForResult(new Intent(ExerciseActivity.this, HighSteppingActivity.class), 3));
+        absCrunchesButton.setOnClickListener(v -> startActivityForResult(new Intent(ExerciseActivity.this, AbsCrunchesActivity.class), 4));
+        pushupsButton.setOnClickListener(v -> startActivityForResult(new Intent(ExerciseActivity.this, PushupsActivity.class), 5));
+        BottomNavigationView bottomNavigationView = findViewById(R.id.bottomNavigation5);
+        bottomNavigationView.setOnNavigationItemSelectedListener(item -> {
+            if (item.getItemId() == R.id.action_sos) {
+                openEmergencyPage();
+                return true;
+            }
+            return false;
+        });
 
-        lungesButton.setOnClickListener(v -> startActivity(new Intent(ExerciseActivity.this, LungesActivity.class)));
-
-        highSteppingButton.setOnClickListener(v -> startActivity(new Intent(ExerciseActivity.this, HighSteppingActivity.class)));
-
-        absCrunchesButton.setOnClickListener(v -> startActivity(new Intent(ExerciseActivity.this, AbsCrunchesActivity.class)));
-
-        pushupsButton.setOnClickListener(v -> startActivity(new Intent(ExerciseActivity.this, PushupsActivity.class)));
         seekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
@@ -68,9 +79,32 @@ public class ExerciseActivity extends AppCompatActivity {
                 saveWaterConsumption(seekBar.getProgress());
             }
         });
-
         buttonDone.setOnClickListener(v -> redirectToRedirectPage());
     }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        if (resultCode == RESULT_OK) {
+            boolean markAsDone = data.getBooleanExtra("markAsDone", false);
+            totalMinutes += data.getIntExtra("duration", 0);
+            totalCalories += data.getIntExtra("caloriesBurned", 0);
+
+            switch (requestCode) {
+                case 1:
+                case 2:
+                case 3:
+                case 4:
+                case 5:
+                    if (markAsDone) {
+                        displayTotalExerciseDetails(totalMinutes,totalCalories);
+                    }
+                    break;
+            }
+        }
+    }
+
 
     private void updateProgress(int progress) {
         progressTextView.setText("Water Consumption: " + progress + " mL");
@@ -132,10 +166,16 @@ public class ExerciseActivity extends AppCompatActivity {
         finish();
     }
 
-    private boolean getMarkAsDoneValue() {
-        SidePlankActivity sidePlankActivity = new SidePlankActivity();
-        boolean sidePlankDone = sidePlankActivity.isMarkedAsDone();
-        return  sidePlankDone;
+    private void displayTotalExerciseDetails(int totalTimeSpent, int totalCaloriesBurned) {
+        TextView totalExerciseTextView = findViewById(R.id.totalExerciseDetailsTextView);
+        String exerciseDetailsMessage = "Total time spent on exercise: " + totalTimeSpent + " minutes\n" +
+                "Total calories burned today: " + totalCaloriesBurned + " kcal";
+        totalExerciseTextView.setText(exerciseDetailsMessage);
+    }
+
+    private void openEmergencyPage() {
+        Intent intent = new Intent(this, EmergencyPageActivity.class);
+        startActivity(intent);
     }
 }
 
