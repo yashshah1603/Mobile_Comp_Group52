@@ -1,6 +1,7 @@
 <!-- res/layout/activity_exercise.xml -->
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="16dp">
@@ -85,6 +86,20 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="16dp"/>
 
-    <!-- Add any other UI elements as needed -->
+    <TextView
+        android:id="@+id/totalExerciseDetailsTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=""
+        android:layout_below="@id/pushupsButton"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="16dp"/>
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottomNavigation5"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        app:menu="@menu/bottom_navigation_menu"/>
 
 </RelativeLayout>

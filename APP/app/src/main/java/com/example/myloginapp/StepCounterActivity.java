@@ -2,6 +2,7 @@ package com.example.myloginapp;
 
 import android.content.ContentValues;
 import android.content.Context;
+import android.content.Intent;
 import android.hardware.Sensor;
 import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
@@ -12,6 +13,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class StepCounterActivity extends AppCompatActivity implements SensorEventListener {
 
@@ -48,6 +51,14 @@ public class StepCounterActivity extends AppCompatActivity implements SensorEven
         playPauseButton.setOnClickListener(v -> toggleTracking());
         finishWalkButton = findViewById(R.id.finishWalkButton);
         finishWalkButton.setOnClickListener(v -> finishWalk());
+        BottomNavigationView bottomNavigationView = findViewById(R.id.bottomNavigation4);
+        bottomNavigationView.setOnNavigationItemSelectedListener(item -> {
+            if (item.getItemId() == R.id.action_sos) {
+                openEmergencyPage();
+                return true;
+            }
+            return false;
+        });
     }
 
     @Override
@@ -106,5 +117,9 @@ public class StepCounterActivity extends AppCompatActivity implements SensorEven
         ContentValues values = new ContentValues();
         values.put("step_count", stepCount);
         dbHelper3.getWritableDatabase().insert("steps", null, values);
+    }
+    private void openEmergencyPage() {
+        Intent intent = new Intent(this, EmergencyPageActivity.class);
+        startActivity(intent);
     }
 }

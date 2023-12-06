@@ -2,6 +2,7 @@ package com.example.myloginapp;
 
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
+import android.content.Intent;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
@@ -14,6 +15,8 @@ import android.widget.VideoView;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -79,7 +82,7 @@ public class MeasureHeartAndRespRateActivity extends AppCompatActivity {
             Handler handler = new Handler();
             handler.postDelayed(() -> {
                 double heartRateValue = Double.parseDouble(res);
-                if (heartRateValue > 150) {
+                if (heartRateValue > 75) {
                     showFeedbackDialog();
                 }
                 heartRateTextView.setText(heartRateTextView.getText() + res);
@@ -101,6 +104,15 @@ public class MeasureHeartAndRespRateActivity extends AppCompatActivity {
             symptomData.put("Resp-Rate", String.valueOf(respVal));
             Handler handler = new Handler();
             handler.postDelayed(() -> respRateTextView.setText(respRateTextView.getText() + String.valueOf(respVal)), RESULT_DELAY);
+        });
+
+        BottomNavigationView bottomNavigationView = findViewById(R.id.bottomNavigation2);
+        bottomNavigationView.setOnNavigationItemSelectedListener(item -> {
+            if (item.getItemId() == R.id.action_sos) {
+                openEmergencyPage();
+                return true;
+            }
+            return false;
         });
 
     }
@@ -172,6 +184,11 @@ public class MeasureHeartAndRespRateActivity extends AppCompatActivity {
             dialog.dismiss();
         });
         builder.create().show();
+    }
+
+    private void openEmergencyPage() {
+        Intent intent = new Intent(this, EmergencyPageActivity.class);
+        startActivity(intent);
     }
 
 }

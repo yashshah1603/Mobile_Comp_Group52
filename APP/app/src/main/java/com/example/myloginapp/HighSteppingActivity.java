@@ -8,7 +8,6 @@ import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 
 public class HighSteppingActivity extends AppCompatActivity {
-    private boolean isMarkedAsDone = false;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -34,10 +33,12 @@ public class HighSteppingActivity extends AppCompatActivity {
         });
     }
     private void markActivityAsDone() {
-        isMarkedAsDone = true;
+        Intent resultIntent = new Intent();
+        resultIntent.putExtra("markAsDone", true);
+        resultIntent.putExtra("duration", 10); // Replace with the actual duration
+        resultIntent.putExtra("caloriesBurned", 60); // Replace with the actual calories burned
+        setResult(RESULT_OK, resultIntent);
+        finish();
     }
 
-    public boolean isMarkedAsDone() {
-        return isMarkedAsDone;
-    }
 }

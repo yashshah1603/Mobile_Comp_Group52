@@ -30,7 +30,7 @@ public class OptionsActivity extends AppCompatActivity {
     }
 
     private void redirectToMainActivity() {
-        Intent intent = new Intent(this, MainActivity.class);
+        Intent intent = new Intent(this, RedirectPage.class);
         startActivity(intent);
         finish();
     }

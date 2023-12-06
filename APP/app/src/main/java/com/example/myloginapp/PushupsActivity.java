@@ -8,7 +8,6 @@ import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 
 public class PushupsActivity extends AppCompatActivity {
-    private boolean isMarkedAsDone = false;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -35,10 +34,11 @@ public class PushupsActivity extends AppCompatActivity {
     }
 
     private void markActivityAsDone() {
-        isMarkedAsDone = true;
-    }
-
-    public boolean isMarkedAsDone() {
-        return isMarkedAsDone;
+        Intent resultIntent = new Intent();
+        resultIntent.putExtra("markAsDone", true);
+        resultIntent.putExtra("duration", 5); // Replace with the actual duration
+        resultIntent.putExtra("caloriesBurned", 30); // Replace with the actual calories burned
+        setResult(RESULT_OK, resultIntent);
+        finish();
     }
 }

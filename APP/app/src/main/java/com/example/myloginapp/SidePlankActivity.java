@@ -8,8 +8,9 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.android.material.bottomnavigation.BottomNavigationView;
+
 public class SidePlankActivity extends AppCompatActivity {
-    private boolean isMarkedAsDone = false;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -35,10 +36,12 @@ public class SidePlankActivity extends AppCompatActivity {
         });
     }
     private void markActivityAsDone() {
-        isMarkedAsDone = true;
+        Intent resultIntent = new Intent();
+        resultIntent.putExtra("markAsDone", true);
+        resultIntent.putExtra("duration", 10); // Replace with the actual duration
+        resultIntent.putExtra("caloriesBurned", 20); // Replace with the actual calories burned
+        setResult(RESULT_OK, resultIntent);
+        finish();
     }
 
-    public boolean isMarkedAsDone() {
-        return isMarkedAsDone;
-    }
 }
