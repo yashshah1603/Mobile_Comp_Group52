@@ -178,16 +178,23 @@ public class MeasureHeartAndRespRateActivity extends AppCompatActivity {
         builder.setPositiveButton("Yes", (dialog, which) -> {
             // Handle the user's response (e.g., log or take action)
             dialog.dismiss();
+            openRedirectPage();
         });
         builder.setNegativeButton("No", (dialog, which) -> {
             // Handle the user's response (e.g., log or take action)
             dialog.dismiss();
+            openEmergencyPage();
         });
         builder.create().show();
     }
 
     private void openEmergencyPage() {
         Intent intent = new Intent(this, EmergencyPageActivity.class);
+        startActivity(intent);
+    }
+
+    private void openRedirectPage() {
+        Intent intent = new Intent(this, RedirectPage.class);
         startActivity(intent);
     }
 
