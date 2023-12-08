@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <!-- Background Image -->
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="centerCrop"
+        android:src="@drawable/call_screen_background" />
+
+    <!-- Call Status -->
+    <TextView
+        android:id="@+id/tvCallStatus"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Calling mobile..."
+        android:textColor="@android:color/black"
+        android:textSize="24sp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="50dp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/abc"
+            android:layout_alignParentBottom="true"
+            android:gravity="center">
+
+
+            <ImageButton
+                android:layout_width="75dp"
+                android:layout_height="75dp"
+                android:layout_margin="20dp"
+                android:src="@drawable/ic_speaker"
+                android:scaleType="fitCenter"/>
+
+            <ImageButton
+                android:id="@+id/btnEndCall"
+                android:layout_width="75dp"
+                android:layout_height="75dp"
+                android:layout_margin="20dp"
+                android:scaleType="fitCenter"
+                android:src="@drawable/ic_end_call" />
+
+        </LinearLayout>
+
+
+</RelativeLayout>
