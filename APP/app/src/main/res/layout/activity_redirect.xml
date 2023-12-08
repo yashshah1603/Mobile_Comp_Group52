@@ -1,0 +1,43 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp"
+    tools:context=".RedirectPage">
+
+    <Button
+        android:id="@+id/buttonMeasureRate"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Measure Heart Rate"/>
+
+    <Button
+        android:id="@+id/buttonAddProfile"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Add New Profile" />
+
+    <Button
+        android:id="@+id/trackStepsButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Track Steps"
+        android:layout_centerInParent="true"/>
+
+    <Button
+        android:id="@+id/exerciseButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Exercise"
+        android:layout_centerInParent="true"/>
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottomNavigation1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        app:menu="@menu/bottom_navigation_menu" />
+
+</LinearLayout>
