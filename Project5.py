@@ -172,8 +172,40 @@ def get_recommendations(diet, ctype, cosine_sim=cosine_sim):
     print(st)
 
 
+
 # Testing Scenarios
 def testcase():
     testExerciseSimulation(15, 26, 0)
     testHydrationNeeded(5, 25, 200, 110, 170, 39)
     get_recommendations('veg', 'healthyfood')
+
+
+##### SECTION 4 #######
+import smtplib
+from email.mime.text import MIMEText
+@app.route('/send_email')
+def send_email(name, r1="", r2="", r3="", r4="", r5=""):
+    subject = "IMPORTANT!!! Information about " + name + " from Health Gaurd"
+    body = "Hi, this is an automated mail from Health Guard." + name + " is in distress and is reaching out to you to \
+    inform you that emergency services have been informed and our on their way."
+    sender = "dummy@asu.edu"
+    password = "dummy"
+    msg = MIMEText(body)
+    msg['Subject'] = subject
+    msg['From'] = sender
+    recipients = []
+    if r1 != "":
+        recipients.append(r1)
+    if r2 != "":
+        recipients.append(r2)
+    if r3 != "":
+        recipients.append(r3)
+    if r4 != "":
+        recipients.append(r4)
+    if r5 != "":
+        recipients.append(r5)
+    msg['To'] = ', '.join(recipients)
+    with smtplib.SMTP_SSL('smtp.gmail.com', 465) as smtp_server:
+       smtp_server.login(sender, password)
+       smtp_server.sendmail(sender, recipients, msg.as_string())
+    print("Message sent!")
